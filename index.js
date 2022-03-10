@@ -3,6 +3,8 @@
 // OUTPUT: the value of the 'name' attribute i.e. Benny
 // REQS: use destructuring and the function should be a single line
 
+import { brands } from "./data"
+
 export const getName = ({ name }) => name
 
 // INPUT: an object with a nested "address" attribute such as
@@ -79,11 +81,22 @@ export const addSneakerCount = ({ shoes, ...rest }) => {
 // INPUT: brands from data.js
 // OUTPUT: the brand names listed
 // REQS: use Object.keys to solve
-export const getBrandNames = () => {}
+export const getBrandNames = (brands) => {
+  return (
+    Object.keys(brands)
+  )
+}
 
 // INPUT: brands from data.js
 // OUTPUT: total number of sneaker types across all brands (14)
-export const totalSneakerCount = () => {}
+export const totalSneakerCount = (brands) => {
+  let count = 0
+  for (let brand of Object.keys(brands)) {
+    count += brands[brand].shoes.length
+  }
+  return count
+}
+
 
 // INPUT: An object
 // OUTPUT: An array with key value pairs converted to arrays
